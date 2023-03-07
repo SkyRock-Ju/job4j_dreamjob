@@ -3,7 +3,6 @@ package com.dreamjob.repository;
 import com.dreamjob.model.Vacancy;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,12 +17,12 @@ public class MemoryVacancyRepository implements VacancyRepository {
     private final Map<Integer, Vacancy> vacancies = new HashMap<>();
 
     private MemoryVacancyRepository() {
-        save(new Vacancy(0, "Intern Java Developer", "New at this job", LocalDateTime.now()));
-        save(new Vacancy(0, "Junior Java Developer","Have experience about 1 year it this job", LocalDateTime.now()));
-        save(new Vacancy(0, "Junior+ Java Developer","More than 1 year of experience but have to improve some hard skills", LocalDateTime.now()));
-        save(new Vacancy(0, "Middle Java Developer","Have experience about 3 years and great hard and soft skills", LocalDateTime.now()));
-        save(new Vacancy(0, "Middle+ Java Developer","More than 3 years of experience but have to improve lead skills", LocalDateTime.now()));
-        save(new Vacancy(0, "Senior Java Developer","Have experience about 6 years have lead skills", LocalDateTime.now()));
+        save(new Vacancy(0, "Intern Java Developer",  "New at this job", LocalDateTime.now()));
+        save(new Vacancy(0, "Junior Java Developer", "Have experience about 1 year it this job", LocalDateTime.now()));
+        save(new Vacancy(0, "Junior+ Java Developer", "More than 1 year of experience but have to improve some hard skills", LocalDateTime.now()));
+        save(new Vacancy(0, "Middle Java Developer", "Have experience about 3 years and great hard and soft skills", LocalDateTime.now()));
+        save(new Vacancy(0, "Middle+ Java Developer", "More than 3 years of experience but have to improve lead skills", LocalDateTime.now()));
+        save(new Vacancy(0, "Senior Java Developer", "Have experience about 6 years have lead skills", LocalDateTime.now()));
     }
 
     public static MemoryVacancyRepository getInstance() {
