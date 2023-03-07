@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/vacancies")
 public class VacancyController {
 
-    private final VacancyRepository vacancyRepository = MemoryVacancyRepository.getInstance();
+        private final VacancyRepository vacancyRepository = MemoryVacancyRepository.getInstance();
 
-    @GetMapping
-    public String getAll(Model model) {
-        model.addAttribute("vacancies", vacancyRepository.findAll());
-        return "vacancies/list";
-    }
+        @GetMapping
+        public String getAll(Model model) {
+            model.addAttribute("vacancies", vacancyRepository.findAll());
+            return "vacancies/list";
+        }
 
 }
