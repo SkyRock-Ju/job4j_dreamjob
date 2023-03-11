@@ -5,16 +5,18 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 @Repository
 public interface CandidateRepository {
     Candidate save(Candidate candidate);
 
-    boolean deleteById(int id);
+    boolean deleteById(UUID id);
 
-    boolean update(Candidate candidate);
+    boolean update(Candidate candidate) throws ExecutionException, InterruptedException;
 
-    Optional<Candidate> findById(int id);
+    Optional<Candidate> findById(UUID id);
 
     Collection<Candidate> findAll();
 
