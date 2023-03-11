@@ -3,10 +3,7 @@ package com.dreamjob.repository;
 import com.dreamjob.model.Vacancy;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MemoryVacancyRepository implements VacancyRepository {
 
@@ -43,7 +40,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
     }
 
     @Override
-    public boolean deleteById(int id) {
+    public boolean deleteById(UUID id) {
         return vacancies.remove(id) != null;
     }
 
@@ -59,7 +56,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
     }
 
     @Override
-    public Optional<Vacancy> findById(int id) {
+    public Optional<Vacancy> findById(UUID id) {
         return Optional.ofNullable(vacancies.get(id));
     }
 

@@ -1,14 +1,12 @@
-package com.dreamjob.repository;
+package com.dreamjob.service;
 
 import com.dreamjob.model.Vacancy;
-import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository
-public interface VacancyRepository {
+public interface VacancyService {
 
     Vacancy save(Vacancy vacancy);
 
