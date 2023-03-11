@@ -2,21 +2,20 @@ package com.dreamjob.service;
 
 import com.dreamjob.model.Candidate;
 import com.dreamjob.repository.CandidateRepository;
-import com.dreamjob.repository.MemoryCandidateRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
-public class SimpleCandidateService implements CandidateService{
+@Service
+public class SimpleCandidateService implements CandidateService {
 
-    private static final SimpleCandidateService INSTANCE = new SimpleCandidateService();
+    private final CandidateRepository candidateRepository;
 
-    private final CandidateRepository candidateRepository = MemoryCandidateRepository.getInstance();
-
-    public static SimpleCandidateService getInstance() {
-        return INSTANCE;
+    public SimpleCandidateService(CandidateRepository candidateRepository) {
+        this.candidateRepository = candidateRepository;
     }
 
     @Override

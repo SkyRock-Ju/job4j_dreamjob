@@ -1,13 +1,13 @@
 package com.dreamjob.repository;
 
 import com.dreamjob.model.Vacancy;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
+@Repository
 public class MemoryVacancyRepository implements VacancyRepository {
-
-    private static final MemoryVacancyRepository INSTANCE = new MemoryVacancyRepository();
 
     private int nextId = 1;
 
@@ -26,10 +26,6 @@ public class MemoryVacancyRepository implements VacancyRepository {
                 "More than 3 years of experience but have to improve lead skills", LocalDateTime.now()));
         save(new Vacancy(0, "Senior Java Developer",
                 "Have experience about 6 years have lead skills", LocalDateTime.now()));
-    }
-
-    public static MemoryVacancyRepository getInstance() {
-        return INSTANCE;
     }
 
     @Override

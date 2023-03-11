@@ -1,15 +1,15 @@
 package com.dreamjob.repository;
 
 import com.dreamjob.model.Candidate;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+@Repository
 public class MemoryCandidateRepository implements CandidateRepository {
-
-    private static final MemoryCandidateRepository INSTANCE = new MemoryCandidateRepository();
 
     private final Map<UUID, Candidate> candidates = new HashMap<>();
 
@@ -26,10 +26,6 @@ public class MemoryCandidateRepository implements CandidateRepository {
                 "10+ experience in android developer", LocalDateTime.now()));
         save(new Candidate("Viktorov Viktor",
                 "Have experience about 6 years have lead skills", LocalDateTime.now()));
-    }
-
-    public static MemoryCandidateRepository getInstance() {
-        return INSTANCE;
     }
 
     @Override
