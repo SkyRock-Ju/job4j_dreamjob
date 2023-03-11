@@ -9,28 +9,25 @@ import java.util.*;
 @Repository
 public class MemoryVacancyRepository implements VacancyRepository {
 
-    private int nextId = 1;
-
-    private final Map<Integer, Vacancy> vacancies = new HashMap<>();
+    private final Map<UUID, Vacancy> vacancies = new HashMap<>();
 
     private MemoryVacancyRepository() {
-        save(new Vacancy(0, "Intern Java Developer",
+        save(new Vacancy("Intern Java Developer",
                 "New at this job", LocalDateTime.now()));
-        save(new Vacancy(0, "Junior Java Developer",
+        save(new Vacancy("Junior Java Developer",
                 "Have experience about 1 year it this job", LocalDateTime.now()));
-        save(new Vacancy(0, "Junior+ Java Developer",
+        save(new Vacancy("Junior+ Java Developer",
                 "More than 1 year of experience but have to improve some hard skills", LocalDateTime.now()));
-        save(new Vacancy(0, "Middle Java Developer",
+        save(new Vacancy("Middle Java Developer",
                 "Have experience about 3 years and great hard and soft skills", LocalDateTime.now()));
-        save(new Vacancy(0, "Middle+ Java Developer",
+        save(new Vacancy("Middle+ Java Developer",
                 "More than 3 years of experience but have to improve lead skills", LocalDateTime.now()));
-        save(new Vacancy(0, "Senior Java Developer",
+        save(new Vacancy("Senior Java Developer",
                 "Have experience about 6 years have lead skills", LocalDateTime.now()));
     }
 
     @Override
     public Vacancy save(Vacancy vacancy) {
-        vacancy.setId(nextId++);
         vacancies.put(vacancy.getId(), vacancy);
         return vacancy;
     }
