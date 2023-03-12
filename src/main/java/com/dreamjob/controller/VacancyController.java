@@ -2,13 +2,12 @@ package com.dreamjob.controller;
 
 import com.dreamjob.model.Vacancy;
 import com.dreamjob.service.VacancyService;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDateTime;
-
+@ThreadSafe
 @Controller
 @RequestMapping("/vacancies")
 public class VacancyController {

@@ -1,6 +1,7 @@
 package com.dreamjob.repository;
 
 import com.dreamjob.model.Vacancy;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -8,6 +9,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@ThreadSafe
 @Repository
 public class MemoryVacancyRepository implements VacancyRepository {
 
