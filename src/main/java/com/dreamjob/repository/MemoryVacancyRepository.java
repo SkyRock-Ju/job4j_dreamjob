@@ -18,17 +18,17 @@ public class MemoryVacancyRepository implements VacancyRepository {
 
     private MemoryVacancyRepository() {
         save(new Vacancy(0, "Intern Java Developer",
-                "New at this job", LocalDateTime.now(), true));
+                "New at this job", LocalDateTime.now(), true, 1));
         save(new Vacancy(0, "Junior Java Developer",
-                "Have experience about 1 year it this job", LocalDateTime.now(), true));
+                "Have experience about 1 year it this job", LocalDateTime.now(), true, 2));
         save(new Vacancy(0, "Junior+ Java Developer",
-                "More than 1 year of experience but have to improve some hard skills", LocalDateTime.now(), true));
+                "More than 1 year of experience but have to improve some hard skills", LocalDateTime.now(), true, 3));
         save(new Vacancy(0, "Middle Java Developer",
-                "Have experience about 3 years and great hard and soft skills", LocalDateTime.now(), true));
+                "Have experience about 3 years and great hard and soft skills", LocalDateTime.now(), true, 1));
         save(new Vacancy(0, "Middle+ Java Developer",
-                "More than 3 years of experience but have to improve lead skills", LocalDateTime.now(), true));
+                "More than 3 years of experience but have to improve lead skills", LocalDateTime.now(), true, 2));
         save(new Vacancy(0, "Senior Java Developer",
-                "Have experience about 6 years have lead skills", LocalDateTime.now(), true));
+                "Have experience about 6 years have lead skills", LocalDateTime.now(), true, 3));
     }
 
     @Override
@@ -51,7 +51,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
                         vacancy.getTitle(),
                         vacancy.getDescription(),
                         vacancy.getCreationDate(),
-                        vacancy.getVisible()))
+                        vacancy.getVisible(),
+                        vacancy.getCityId()))
                 != null;
     }
 
