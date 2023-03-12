@@ -2,14 +2,13 @@ package com.dreamjob.model;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Vacancy {
 
     private int id;
     private String title;
     private String description;
-    private LocalDateTime creationDate;
+    private LocalDateTime creationDate = LocalDateTime.now();
 
     public String getDescription() {
         return description;
@@ -32,6 +31,9 @@ public class Vacancy {
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
+    }
+
+    public Vacancy() {
     }
 
     public int getId() {
