@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
-import java.util.UUID;
-import java.util.concurrent.ExecutionException;
 
 @Service
 public class SimpleCandidateService implements CandidateService {
@@ -24,17 +22,17 @@ public class SimpleCandidateService implements CandidateService {
     }
 
     @Override
-    public boolean deleteById(UUID id) {
+    public boolean deleteById(int id) {
         return candidateRepository.deleteById(id);
     }
 
     @Override
-    public boolean update(Candidate candidate) throws ExecutionException, InterruptedException {
+    public boolean update(Candidate candidate) {
         return candidateRepository.update(candidate);
     }
 
     @Override
-    public Optional<Candidate> findById(UUID id) {
+    public Optional<Candidate> findById(int id) {
         return candidateRepository.findById(id);
     }
 
@@ -42,5 +40,4 @@ public class SimpleCandidateService implements CandidateService {
     public Collection<Candidate> findAll() {
         return candidateRepository.findAll();
     }
-
 }

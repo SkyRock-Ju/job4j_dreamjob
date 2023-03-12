@@ -2,11 +2,10 @@ package com.dreamjob.model;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
 public class Candidate {
 
-    private UUID id;
+    private int id;
     private String title;
     private String description;
     private LocalDateTime creationDate;
@@ -27,25 +26,18 @@ public class Candidate {
         this.creationDate = creationDate;
     }
 
-    public Candidate(String title, String description, LocalDateTime creationDate) {
-        this.id = UUID.randomUUID();
-        this.title = title;
-        this.description = description;
-        this.creationDate = creationDate;
-    }
-
-    public Candidate(UUID id, String title, String description, LocalDateTime creationDate) {
+    public Candidate(int id, String title, String description, LocalDateTime creationDate) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -2,11 +2,11 @@ package com.dreamjob.model;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Vacancy {
 
-    private UUID id;
+    private int id;
     private String title;
     private String description;
     private LocalDateTime creationDate;
@@ -27,25 +27,18 @@ public class Vacancy {
         this.creationDate = creationDate;
     }
 
-    public Vacancy(String title, String description, LocalDateTime creationDate) {
-        this.id = UUID.randomUUID();
-        this.title = title;
-        this.description = description;
-        this.creationDate = creationDate;
-    }
-
-    public Vacancy(UUID id, String title, String description, LocalDateTime creationDate) {
+    public Vacancy(int id, String title, String description, LocalDateTime creationDate) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

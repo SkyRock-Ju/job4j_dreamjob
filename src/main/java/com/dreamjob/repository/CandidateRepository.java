@@ -1,22 +1,18 @@
 package com.dreamjob.repository;
 
 import com.dreamjob.model.Candidate;
-import org.springframework.stereotype.Repository;
-
 import java.util.Collection;
 import java.util.Optional;
-import java.util.UUID;
-import java.util.concurrent.ExecutionException;
 
-@Repository
 public interface CandidateRepository {
+
     Candidate save(Candidate candidate);
 
-    boolean deleteById(UUID id);
+    boolean deleteById(int id);
 
-    boolean update(Candidate candidate) throws ExecutionException, InterruptedException;
+    boolean update(Candidate candidate);
 
-    Optional<Candidate> findById(UUID id);
+    Optional<Candidate> findById(int id);
 
     Collection<Candidate> findAll();
 

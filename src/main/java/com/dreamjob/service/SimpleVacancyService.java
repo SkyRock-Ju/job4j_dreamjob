@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class SimpleVacancyService implements VacancyService {
@@ -23,7 +22,7 @@ public class SimpleVacancyService implements VacancyService {
     }
 
     @Override
-    public boolean deleteById(UUID id) {
+    public boolean deleteById(int id) {
         return vacancyRepository.deleteById(id);
     }
 
@@ -33,7 +32,7 @@ public class SimpleVacancyService implements VacancyService {
     }
 
     @Override
-    public Optional<Vacancy> findById(UUID id) {
+    public Optional<Vacancy> findById(int id) {
         return vacancyRepository.findById(id);
     }
 

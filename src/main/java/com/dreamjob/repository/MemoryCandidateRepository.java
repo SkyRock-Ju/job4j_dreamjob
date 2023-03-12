@@ -5,54 +5,54 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class MemoryCandidateRepository implements CandidateRepository {
 
-    private final Map<UUID, Candidate> candidates = new HashMap<>();
+    private final Map<Integer, Candidate> candidates = new ConcurrentHashMap<>();
+    private final AtomicInteger nextId = new AtomicInteger(1);
 
     private MemoryCandidateRepository() {
-        save(new Candidate("Petrov Petr",
+        save(new Candidate(0, "Petrov Petr",
                 "bachelors degree at CS", LocalDateTime.now()));
-        save(new Candidate("Alexandrov Alexandr",
+        save(new Candidate(0, "Alexandrov Alexandr",
                 "3+ years experience in backend", LocalDateTime.now()));
-        save(new Candidate("Ivanov Ivan",
+        save(new Candidate(0, "Ivanov Ivan",
                 "good soft manager skills", LocalDateTime.now()));
-        save(new Candidate("Andreev Andrey",
+        save(new Candidate(0, "Andreev Andrey",
                 "worked in google 2 years", LocalDateTime.now()));
-        save(new Candidate("Borisov Boris",
+        save(new Candidate(0, "Borisov Boris",
                 "10+ experience in android developer", LocalDateTime.now()));
-        save(new Candidate("Viktorov Viktor",
+        save(new Candidate(0, "Viktorov Viktor",
                 "Have experience about 6 years have lead skills", LocalDateTime.now()));
     }
 
     @Override
     public Candidate save(Candidate candidate) {
-        CompletableFuture.runAsync(() -> candidates.put(candidate.getId(), candidate));
+        candidate.setId(nextId.incrementAndGet());
+        candidates.put(candidate.getId(), candidate);
         return candidate;
     }
 
     @Override
-    public boolean deleteById(UUID id) {
+    public boolean deleteById(int id) {
         return candidates.remove(id) != null;
     }
 
     @Override
-    public boolean update(Candidate candidate) throws ExecutionException, InterruptedException {
-        if (!candidates.containsKey(candidate.getId())) {
-            return false;
-        }
-        CompletableFuture<Boolean> updateCandidateFuture = CompletableFuture.supplyAsync(() -> {
-            candidates.put(candidate.getId(), candidate);
-            return true;
-        });
-        return updateCandidateFuture.get();
+    public boolean update(Candidate candidate) {
+        return candidates.computeIfPresent(candidate.getId(), (id, oldCandidate) ->
+                new Candidate(
+                        oldCandidate.getId(),
+                        candidate.getTitle(),
+                        candidate.getDescription(),
+                        candidate.getCreationDate())) != null;
     }
 
     @Override
-    public Optional<Candidate> findById(UUID id) {
+    public Optional<Candidate> findById(int id) {
         return Optional.ofNullable(candidates.get(id));
     }
 
