@@ -26,14 +26,14 @@ public class Candidate {
         this.creationDate = creationDate;
     }
 
+    public Candidate() {
+    }
+
     public Candidate(int id, String title, String description, LocalDateTime creationDate) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
-    }
-
-    public Candidate() {
     }
 
     public int getId() {
