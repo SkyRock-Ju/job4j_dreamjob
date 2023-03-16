@@ -11,17 +11,20 @@ public class Vacancy {
     private LocalDateTime creationDate = LocalDateTime.now();
     private boolean visible;
     private int cityId;
+    private int fileId;
 
     public Vacancy() {
     }
 
-    public Vacancy(int id, String title, String description, LocalDateTime creationDate, boolean visible, int cityId) {
+    public Vacancy(int id, String title, String description, LocalDateTime creationDate,
+                   boolean visible, int cityId, int fileId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
         this.visible = visible;
         this.cityId = cityId;
+        this.fileId = fileId;
     }
 
     public int getId() {
@@ -72,6 +75,14 @@ public class Vacancy {
         this.cityId = cityId;
     }
 
+    public int getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(int fileId) {
+        this.fileId = fileId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -88,4 +99,5 @@ public class Vacancy {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

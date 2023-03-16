@@ -18,17 +18,17 @@ public class MemoryCandidateRepository implements CandidateRepository {
 
     private MemoryCandidateRepository() {
         save(new Candidate(0, "Petrov Petr",
-                "bachelors degree at CS", LocalDateTime.now()));
+                "bachelors degree at CS", LocalDateTime.now(), 0));
         save(new Candidate(0, "Alexandrov Alexandr",
-                "3+ years experience in backend", LocalDateTime.now()));
+                "3+ years experience in backend", LocalDateTime.now(), 0));
         save(new Candidate(0, "Ivanov Ivan",
-                "good soft manager skills", LocalDateTime.now()));
+                "good soft manager skills", LocalDateTime.now(), 0));
         save(new Candidate(0, "Andreev Andrey",
-                "worked in google 2 years", LocalDateTime.now()));
+                "worked in google 2 years", LocalDateTime.now(), 0));
         save(new Candidate(0, "Borisov Boris",
-                "10+ experience in android developer", LocalDateTime.now()));
+                "10+ experience in android developer", LocalDateTime.now(), 0));
         save(new Candidate(0, "Viktorov Viktor",
-                "Have experience about 6 years have lead skills", LocalDateTime.now()));
+                "Have experience about 6 years have lead skills", LocalDateTime.now(), 0));
     }
 
     @Override
@@ -50,7 +50,8 @@ public class MemoryCandidateRepository implements CandidateRepository {
                         oldCandidate.getId(),
                         candidate.getTitle(),
                         candidate.getDescription(),
-                        candidate.getCreationDate())) != null;
+                        candidate.getCreationDate(),
+                        candidate.getFileId())) != null;
     }
 
     @Override

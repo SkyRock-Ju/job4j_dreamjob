@@ -9,6 +9,34 @@ public class Candidate {
     private String title;
     private String description;
     private LocalDateTime creationDate = LocalDateTime.now();
+    private int fileId;
+
+    public Candidate() {
+    }
+
+    public Candidate(int id, String title, String description, LocalDateTime creationDate, int fileId) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.fileId = fileId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getDescription() {
         return description;
@@ -26,30 +54,12 @@ public class Candidate {
         this.creationDate = creationDate;
     }
 
-    public Candidate() {
+    public int getFileId() {
+        return fileId;
     }
 
-    public Candidate(int id, String title, String description, LocalDateTime creationDate) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.creationDate = creationDate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setFileId(int fileId) {
+        this.fileId = fileId;
     }
 
     @Override
