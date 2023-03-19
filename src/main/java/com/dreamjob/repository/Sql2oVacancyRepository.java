@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Repository
-public class Sql2oVacancyRepository implements VacancyRepository{
+public class Sql2oVacancyRepository implements VacancyRepository {
 
     private final Sql2o sql2o;
 
