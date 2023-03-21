@@ -1,10 +1,11 @@
 package com.dreamjob.repository;
 
 import com.dreamjob.model.File;
-import org.springframework.stereotype.Repository;
+import net.jcip.annotations.ThreadSafe;
 
 import java.util.Optional;
 
+@ThreadSafe
 public interface FileRepository {
 
     File save(File file);

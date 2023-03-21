@@ -1,11 +1,13 @@
 package com.dreamjob.repository;
 
 import com.dreamjob.model.City;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 
 import java.util.Collection;
 
+@ThreadSafe
 @Repository
 public class Sql2oCityRepository implements CityRepository {
 

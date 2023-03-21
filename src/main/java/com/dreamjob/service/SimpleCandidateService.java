@@ -3,11 +3,13 @@ package com.dreamjob.service;
 import com.dreamjob.model.Candidate;
 import com.dreamjob.model.FileDto;
 import com.dreamjob.repository.CandidateRepository;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
 
+@ThreadSafe
 @Service
 public class SimpleCandidateService implements CandidateService {
 

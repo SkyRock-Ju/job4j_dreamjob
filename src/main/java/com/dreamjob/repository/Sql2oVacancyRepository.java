@@ -1,12 +1,14 @@
 package com.dreamjob.repository;
 
 import com.dreamjob.model.Vacancy;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 
 import java.util.Collection;
 import java.util.Optional;
 
+@ThreadSafe
 @Repository
 public class Sql2oVacancyRepository implements VacancyRepository {
 

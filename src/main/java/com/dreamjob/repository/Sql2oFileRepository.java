@@ -1,10 +1,13 @@
 package com.dreamjob.repository;
 
 import com.dreamjob.model.File;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 
 import java.util.Optional;
+
+@ThreadSafe
 @Repository
 public class Sql2oFileRepository implements FileRepository {
 
