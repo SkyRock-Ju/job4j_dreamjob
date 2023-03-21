@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.sql2o.Sql2oException;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
 import static java.util.Collections.emptyList;
@@ -56,7 +57,7 @@ public class Sql2oUserRepositoryTest {
     public void saveUserThenSaveUserWithSameEmail() {
         var user = sql2oUserRepository.save(new User(0, "email@email.com",
                 "username", "password"));
-        assertThrows(Sql2oException.class, () -> sql2oUserRepository.save(user.get()));
+        assertThat(sql2oUserRepository.save(user.get())).isEqualTo(Optional.empty());
     }
 
     @Test
