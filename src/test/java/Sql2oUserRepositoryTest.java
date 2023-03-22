@@ -4,8 +4,6 @@ import com.dreamjob.repository.Sql2oUserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.sql2o.Sql2oException;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
@@ -13,7 +11,6 @@ import java.util.Properties;
 import static java.util.Collections.emptyList;
 import static java.util.Optional.empty;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class Sql2oUserRepositoryTest {
 

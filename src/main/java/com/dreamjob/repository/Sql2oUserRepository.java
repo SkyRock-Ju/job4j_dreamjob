@@ -2,6 +2,8 @@ package com.dreamjob.repository;
 
 import com.dreamjob.model.User;
 import net.jcip.annotations.ThreadSafe;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 
@@ -13,7 +15,7 @@ import java.util.Optional;
 public class Sql2oUserRepository implements UserRepository {
 
     private final Sql2o sql2o;
-
+    private static Logger log = LoggerFactory.getLogger(Sql2oUserRepository.class);
     public Sql2oUserRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
@@ -33,9 +35,9 @@ public class Sql2oUserRepository implements UserRepository {
             user.setId(generatedId);
             return Optional.of(user);
         } catch (Exception e) {
-            e.printStackTrace();
-            return Optional.empty();
+            log.info(e.getMessage());
         }
+        return Optional.empty();
     }
 
     @Override
