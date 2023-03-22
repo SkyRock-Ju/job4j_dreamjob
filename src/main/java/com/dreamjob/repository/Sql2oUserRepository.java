@@ -16,6 +16,7 @@ public class Sql2oUserRepository implements UserRepository {
 
     private final Sql2o sql2o;
     private static Logger log = LoggerFactory.getLogger(Sql2oUserRepository.class);
+
     public Sql2oUserRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
