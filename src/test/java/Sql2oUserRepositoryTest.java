@@ -11,6 +11,9 @@ import java.util.Properties;
 import static java.util.Collections.emptyList;
 import static java.util.Optional.empty;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class Sql2oUserRepositoryTest {
 
@@ -88,6 +91,14 @@ public class Sql2oUserRepositoryTest {
     @Test
     public void whenDeleteByInvalidIdThenGetFalse() {
         assertThat(sql2oUserRepository.deleteById(0)).isFalse();
+    }
+
+    @Test
+    public void test() {
+        Sql2oUserRepository mockSql2o = mock(Sql2oUserRepository.class);
+        var user = new User(0, "mockito@test", "mockito", "test");
+        when(mockSql2o.save(any(User.class))).thenReturn(Optional.of(user));
+        assertThat(mockSql2o.save(new User(1, "1", "1", "1"))).isEqualTo(Optional.of(user));
     }
 
 }
