@@ -1,3 +1,5 @@
+package repository;
+
 import com.dreamjob.configuration.DatasourceConfiguration;
 import com.dreamjob.model.File;
 import com.dreamjob.model.Vacancy;
