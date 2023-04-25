@@ -43,8 +43,7 @@ public class Sql2oCandidateRepositoryTest {
         sql2oCandidateRepository = new Sql2oCandidateRepository(sql2o);
         sql2oFileRepository = new Sql2oFileRepository(sql2o);
 
-        file = new File("test", "test");
-        sql2oFileRepository.save(file);
+        file = sql2oFileRepository.save(new File("test", "test"));
     }
 
     @AfterAll
@@ -53,7 +52,7 @@ public class Sql2oCandidateRepositoryTest {
     }
 
     @AfterEach
-    public void clearVacancies() {
+    public void clearCandidates() {
         var candidates = sql2oCandidateRepository.findAll();
         for (var candidate : candidates) {
             sql2oCandidateRepository.deleteById(candidate.getId());

@@ -146,7 +146,7 @@ public class CandidateControllerTest {
     }
 
     @Test
-    public void whenDeleteVacancyThenGetError() {
+    public void whenDeleteCandidateThenGetError() {
         when(candidateService.deleteById(1)).thenReturn(false);
         var model = new ConcurrentModel();
         var view = candidateController.delete(model, 1);
